@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <title>index</title>
+    <link href="bootstrap-5.3.5-dist/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="bg-light">
     <div class="container d-flex justify-content-center align-items-center" style="min-height:100vh;">
@@ -11,27 +12,14 @@
             <div class="card-body">
                 <h2 class="text-primary text-center mb-3">Inscription</h2>
                 <?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $nom = $_POST["nom"];
-                    $date_naissance = $_POST["date_naissance"];
-                    $genre = $_POST["genre"];
-                    $email = $_POST["email"];
-                    $ville = $_POST["ville"];
-                    $mdp = password_hash($_POST["mdp"], PASSWORD_DEFAULT);
-                    $image_profil = $_POST["image_profil"];
-
-                    $conn = new mysqli("localhost", "root", "", "object");
-                    $sql = "INSERT INTO membre (nom, date_naissance, genre, email, ville, mdp, image_profil)
-                            VALUES ('$nom', '$date_naissance', '$genre', '$email', '$ville', '$mdp', '$image_profil')";
-                    if ($conn->query($sql)) {
-                        echo "<div class='alert alert-success'>Inscription réussie ! <a href='login.php'>Se connecter</a></div>";
-                    } else {
-                        echo "<div class='alert alert-danger'>Erreur lors de l'inscription.</div>";
-                    }
-                    $conn->close();
+                if (isset($_GET['erreur'])) {
+                    echo "<div class='alert alert-danger'>".$_GET['erreur']."</div>";
+                }
+                if (isset($_GET['success'])) {
+                    echo "<div class='alert alert-success'>".$_GET['success']."</div>";
                 }
                 ?>
-                <form method="post">
+                <form method="post" action="traitement_inscription.php">
                     <div class="mb-3">
                         <label class="form-label">Nom</label>
                         <input type="text" name="nom" class="form-control form-control-lg" required>

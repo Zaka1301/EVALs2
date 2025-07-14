@@ -112,5 +112,11 @@ INSERT INTO objet (nom_objet, id_categorie, id_membre) VALUES
 -- Insertion des images_objet (1 image par objet)
 INSERT INTO images_objet (id_objet, nom_image) VALUES
 (1, 'seche_cheveux.jpg'), (2, 'trousse_maquillage.jpg'), (3, 'perceuse.jpg'), (4, 'tournevis.jpg'), (5, 'cle_molette.jpg'),
-(6, 'pompe_velo.jpg'), (7, 'mixeur.jpg'), (8
-// ...existing code...
+(6, 'pompe_velo.jpg'), (7, 'mixeur.jpg'), (8, 'casserole.jpg'), (9, 'fer_lisser.jpg'), (10, 'pinceau.jpg'),
+(11, 'marteau.jpg'), (12, 'scie.jpg'), (13, 'cric.jpg'), (14, 'cle_dynamometrique.jpg'), (15, 'robot_patisserie.jpg'),
+(16, 'poele.jpg'), (17, 'brosse_cheveux.jpg'), (18, 'palette_maquillage.jpg'), (19, 'tournevis_electrique.jpg'),
+(20, 'pompe_main.jpg'), (21, 'cafetière.jpg'), (22, 'grille_pain.jpg'), (23, 'cle_plate.jpg'), (24, 'tournevis_plat.jpg'),
+(25, 'brosse_dents_electrique.jpg'), (26, 'seche_serviette.jpg'), (27, 'scie_sauteuse.jpg'), (28, 'perceuse_sans_fil.jpg'),
+(29, 'cle_allen.jpg'), (30, 'mixeur_plongeant.jpg'), (31, 'fouet.jpg'), (32, 'moule_gateau.jpg'), (33, 'cle_pipe.jpg'),
+(34, 'tournevis_cruciforme.jpg'), (35, 'brosse_ongles.jpg'), (36, 'lisseur_vapeur.jpg'), (37, 'scie_circulaire.jpg'),
+(38, 'perceuse_percussion.jpg'), (39, 'cle_anglaise.jpg'), (40, 'cocotte_minute.jpg');
