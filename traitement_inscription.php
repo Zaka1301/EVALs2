@@ -8,10 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mdp = password_hash($_POST["mdp"], PASSWORD_DEFAULT);
     $image_profil = $_POST["image_profil"];
 
-    $conn = new mysqli("localhost", "root", "", "object");
-    /*if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}*/
+    $conn = new mysqli("localhost", "ETU004182", "12p8q4a7", "db_s2_ETU004182");
+
     $sql = "INSERT INTO membre (nom, date_naissance, genre, email, ville, mdp, image_profil)
             VALUES ('$nom', '$date_naissance', '$genre', '$email', '$ville', '$mdp', '$image_profil')";
     if ($conn->query($sql)) {

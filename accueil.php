@@ -5,18 +5,15 @@ if (!isset($_SESSION["id_membre"])) {
     exit();
 }
 
-$conn = new mysqli("localhost", "root", "", "object");
+ $conn = new mysqli("localhost", "ETU004182", "12p8q4a7", "db_s2_ETU004182");
 if ($conn->connect_error) {
     die("Connexion échouée : " . $conn->connect_error);
 }
 
-// Lire la catégorie sélectionnée
 $filtre_categorie = isset($_GET['categorie']) ? (int) $_GET['categorie'] : 0;
 
-// Récupérer toutes les catégories pour le <select>
 $categories_result = $conn->query("SELECT * FROM categorie_objet");
 
-// Requête principale avec LEFT JOIN sur emprunts actifs
 $sql = "SELECT o.nom_objet, c.nom_categorie, o.date_ajout, 
        (
            SELECT e.date_retour
@@ -50,7 +47,7 @@ $result = $conn->query($sql);
             <div class="card-body">
                 <h2 class="text-primary mb-4">Liste des objets</h2>
 
-                <!-- Formulaire de filtre par catégorie -->
+                
                 <form method="get" class="mb-4">
                     <div class="row g-3 align-items-center">
                         <div class="col-auto">
@@ -69,7 +66,7 @@ $result = $conn->query($sql);
                     </div>
                 </form>
 
-                <!-- Tableau des objets -->
+                
                 <table class="table table-bordered">
                     <thead>
                         <tr>

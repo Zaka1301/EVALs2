@@ -1,8 +1,8 @@
--- Création de la base de données
+
 CREATE DATABASE object;
 USE object;
 
--- Table membre
+
 CREATE TABLE membre (
     id_membre INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100),
@@ -14,13 +14,13 @@ CREATE TABLE membre (
     image_profil VARCHAR(255)
 );
 
--- Table categorie_objet
+
 CREATE TABLE categorie_objet (
     id_categorie INT AUTO_INCREMENT PRIMARY KEY,
     nom_categorie VARCHAR(50)
 );
 
--- Table objet
+
 CREATE TABLE objet (
     id_objet INT AUTO_INCREMENT PRIMARY KEY,
     nom_objet VARCHAR(100),
@@ -30,15 +30,13 @@ CREATE TABLE objet (
     FOREIGN KEY (id_membre) REFERENCES membre(id_membre)
 );
 
--- Table images_objet
+
 CREATE TABLE images_objet (
     id_image INT AUTO_INCREMENT PRIMARY KEY,
     id_objet INT,
     nom_image VARCHAR(255),
     FOREIGN KEY (id_objet) REFERENCES objet(id_objet)
 );
-
--- Table emprunt
 CREATE TABLE emprunt (
     id_emprunt INT AUTO_INCREMENT PRIMARY KEY,
     id_objet INT,
@@ -49,21 +47,20 @@ CREATE TABLE emprunt (
     FOREIGN KEY (id_membre) REFERENCES membre(id_membre)
 );
 
--- Insertion des membres
+
 INSERT INTO membre (nom, date_naissance, genre, email, ville, mdp, image_profil) VALUES
 ('Alice', '1990-05-12', 'F', 'alice@email.com', 'Paris', 'pass1', 'alice.jpg'),
 ('Bob', '1985-08-23', 'M', 'bob@email.com', 'Lyon', 'pass2', 'bob.jpg'),
 ('Charlie', '1992-11-03', 'M', 'charlie@email.com', 'Marseille', 'pass3', 'charlie.jpg'),
 ('Diane', '1988-02-17', 'F', 'diane@email.com', 'Toulouse', 'pass4', 'diane.jpg');
 
--- Insertion des catégories
 INSERT INTO categorie_objet (nom_categorie) VALUES
 ('esthétique'),
 ('bricolage'),
 ('mécanique'),
 ('cuisine');
 
--- Insertion des objets (10 par membre, répartis sur les catégories)
+
 INSERT INTO objet (nom_objet, id_categorie, id_membre) VALUES
 ('Sèche-cheveux', 1, 1),
 ('Trousse de maquillage', 1, 1),
@@ -109,7 +106,7 @@ INSERT INTO objet (nom_objet, id_categorie, id_membre) VALUES
 ('Clé anglaise', 3, 4),
 ('Cocotte-minute', 4, 4);
 
--- Insertion des images_objet (1 image par objet)
+
 INSERT INTO images_objet (id_objet, nom_image) VALUES
 (1, 'seche_cheveux.jpg'), (2, 'trousse_maquillage.jpg'), (3, 'perceuse.jpg'), (4, 'tournevis.jpg'), (5, 'cle_molette.jpg'),
 (6, 'pompe_velo.jpg'), (7, 'mixeur.jpg'), (8, 'casserole.jpg'), (9, 'fer_lisser.jpg'), (10, 'pinceau.jpg'),
@@ -121,7 +118,7 @@ INSERT INTO images_objet (id_objet, nom_image) VALUES
 (34, 'tournevis_cruciforme.jpg'), (35, 'brosse_ongles.jpg'), (36, 'lisseur_vapeur.jpg'), (37, 'scie_circulaire.jpg'),
 (38, 'perceuse_percussion.jpg'), (39, 'cle_anglaise.jpg'), (40, 'cocotte_minute.jpg');
 
--- Insertion des emprunts (10 emprunts, certains avec date_retour, d'autres sans)
+
 INSERT INTO emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES
 (1, 2, '2025-07-01', '2025-07-05'),
 (5, 3, '2025-07-02', NULL),
@@ -134,7 +131,6 @@ INSERT INTO emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES
 (40, 2, '2025-07-09', '2025-07-13'),
 (12, 3, '2025-07-10', NULL);
 
--- Insertion des emprunts (10 emprunts, certains avec date_retour, d'autres sans)
 INSERT INTO emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES
 (1, 2, '2025-07-01', '2025-07-05'),
 (5, 3, '2025-07-02', NULL),
@@ -146,3 +142,5 @@ INSERT INTO emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES
 (35, 1, '2025-07-08', NULL),
 (40, 2, '2025-07-09', '2025-07-13'),
 (12, 3, '2025-07-10', NULL);
+
+ALTER TABLE objet ADD COLUMN date_ajout DATE DEFAULT CURDATE();

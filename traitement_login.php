@@ -3,10 +3,8 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $mdp = $_POST["mdp"];
-    $conn = new mysqli("localhost", "root", "", "object");
-    /*if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}*/
+  $conn = new mysqli("localhost", "ETU004182", "12p8q4a7", "db_s2_ETU004182");
+    
     $sql = "SELECT * FROM membre WHERE email='$email'";
     $result = $conn->query($sql);
     if ($row = $result->fetch_assoc()) {
