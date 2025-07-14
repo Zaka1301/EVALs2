@@ -1,10 +1,12 @@
 <?php
-<?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $mdp = $_POST["mdp"];
     $conn = new mysqli("localhost", "root", "", "object");
+    /*if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}*/
     $sql = "SELECT * FROM membre WHERE email='$email'";
     $result = $conn->query($sql);
     if ($row = $result->fetch_assoc()) {

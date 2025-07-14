@@ -120,3 +120,29 @@ INSERT INTO images_objet (id_objet, nom_image) VALUES
 (29, 'cle_allen.jpg'), (30, 'mixeur_plongeant.jpg'), (31, 'fouet.jpg'), (32, 'moule_gateau.jpg'), (33, 'cle_pipe.jpg'),
 (34, 'tournevis_cruciforme.jpg'), (35, 'brosse_ongles.jpg'), (36, 'lisseur_vapeur.jpg'), (37, 'scie_circulaire.jpg'),
 (38, 'perceuse_percussion.jpg'), (39, 'cle_anglaise.jpg'), (40, 'cocotte_minute.jpg');
+
+-- Insertion des emprunts (10 emprunts, certains avec date_retour, d'autres sans)
+INSERT INTO emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES
+(1, 2, '2025-07-01', '2025-07-05'),
+(5, 3, '2025-07-02', NULL),
+(10, 4, '2025-07-03', '2025-07-07'),
+(15, 1, '2025-07-04', NULL),
+(20, 2, '2025-07-05', '2025-07-09'),
+(25, 3, '2025-07-06', NULL),
+(30, 4, '2025-07-07', '2025-07-11'),
+(35, 1, '2025-07-08', NULL),
+(40, 2, '2025-07-09', '2025-07-13'),
+(12, 3, '2025-07-10', NULL);
+
+-- Insertion des emprunts (10 emprunts, certains avec date_retour, d'autres sans)
+INSERT INTO emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES
+(1, 2, '2025-07-01', '2025-07-05'),
+(5, 3, '2025-07-02', NULL),
+(10, 4, '2025-07-03', '2025-07-07'),
+(15, 1, '2025-07-04', NULL),
+(20, 2, '2025-07-05', '2025-07-09'),
+(25, 3, '2025-07-06', NULL),
+(30, 4, '2025-07-07', '2025-07-11'),
+(35, 1, '2025-07-08', NULL),
+(40, 2, '2025-07-09', '2025-07-13'),
+(12, 3, '2025-07-10', NULL);

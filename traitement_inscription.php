@@ -9,6 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $image_profil = $_POST["image_profil"];
 
     $conn = new mysqli("localhost", "root", "", "object");
+    /*if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}*/
     $sql = "INSERT INTO membre (nom, date_naissance, genre, email, ville, mdp, image_profil)
             VALUES ('$nom', '$date_naissance', '$genre', '$email', '$ville', '$mdp', '$image_profil')";
     if ($conn->query($sql)) {
